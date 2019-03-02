@@ -62,9 +62,9 @@ the path has processed since last time.
 2. There will be some latency between the simulator running and the path planner returning a path, with optimized code usually its not very long maybe just 1-3 time steps. During this delay the simulator will continue using points that it was last given, because of this its a good idea to store the last points you have used so you can have a smooth transition. previous_path_x, and previous_path_y can be helpful for this transition since they show the last points given to the simulator controller with the processed points already removed. You would either return a path that extends this previous path or make sure to create a new path that has a smooth transition with this last path.
 
 
-##Project implementation details
+## Project implementation details
 
-#Initial screen of simulator
+#### Initial screen of simulator
 ![Simulator_home][image1]
 
 The simulator sends the cars current position along with the sensor fusion information of all the other cars on the highway. A trajectory was generated using the spline function using points that are spaced 0.02 seconds apart. The car moves once every 0.02 seconds and there are 50 points per second that the car moves along. The distance travelled every 0.02 seconds can be set in the code which determines the speed of the car. For example, setting 0.5 m for each 0.02 second interval means that the car travels at 0.5 x 0.02 = 25 m/s. A websocket communicates with the simulator and the path planning program.
@@ -77,38 +77,36 @@ The data from the previous path is used so that all the unused points (the point
 ### The car is able to drive at least 4.32 miles without incident. 
 
 Here is a picture of car after completing the final run 
-[image9]: ./results/9_final.png "Final"
-
-#pictures of lane change, slowing down, etc
+[Final]: ./results/9_final.png "Final"
 
 ### The car drives according to the speed limit.
 The car doesn't drive faster than the speed limit. Also the car isn't driving much slower than speed limit unless obstructed by traffic.
 Example of driving at max speed (49.5 m/s)
-[image3]: ./results/3_max_speed.png "Max speed"
+[Max speed]: ./results/3_max_speed.png "Max speed"
 
 Example of the car slowing down
-[image4]: ./results/4_slowdown.png "Slow down"
+[Slow down]: ./results/4_slowdown.png "Slow down"
 
 ### Max Acceleration and Jerk are not Exceeded.
 The car does not exceed a total acceleration of 10 m/s^2 and a jerk of 10 m/s^3.
-[image2]: ./results/2_side_view.png "Side view"
+[Side view]: ./results/2_side_view.png "Side view"
 
 ### Car does not have collisions.
 The car must not come into contact with any of the other cars on the road. Here is an example where the car slows down and does not change lane due to the presence of another car.
-[image5]: ./results/5_slowdown_without_changing_lane_due_to_a_car.png "Slow down avoid lane change"
+[Slow down and avoid lane change due to a car]: ./results/5_slowdown_without_changing_lane_due_to_a_car.png "Slow down avoid lane change"
 ###The car stays in its lane, except for the time between changing lanes.
 The car doesn't spend more than a 3 second length out side the lane lanes during changing lanes, and every other time the car stays inside one of the 3 lanes on the right hand side of the road.
 
 ###The car is able to change lanes
 The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic.
 Example of lane change left at low speed
-[image6]: ./results/6_lane_change_lowspeed.png "Lane change low speed"
+[Lane change at low speed]: ./results/6_lane_change_lowspeed.png "Lane change low speed"
 
 Example of lane change left at full speed
-[image7]: ./results/7_lane_change_fullspeed.png "Lane change full speed"
+[Lane change at full speed]: ./results/7_lane_change_fullspeed.png "Lane change full speed"
 
 Example of lane change right
-[image8]: ./results/8_lane_change_right.png "lane change right"
+[Lane change right]: ./results/8_lane_change_right.png "lane change right"
 
 ###There is a reflection on how to generate paths.
 The code model for generating paths is described in detail. This can be part of the README or a separate doc labeled "Model Documentation".
