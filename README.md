@@ -134,7 +134,7 @@ From the right lane, it can only go to the left lane
 once we have a probable lane to shift to, the next step is to find out if there is no car within 30m of our car. This code in the helper function checks that every times, the socket message is read from the simulator. If we detect a car within 30m , we slow down and stay in lane otherwise we go ahead and switch.
 
 ### code lines 187 - 189 and 201 - 204 in main.cpp
-Sometimes, the car ahead brakes suddenly and the above mentioed code lines in the main function handle this by slowing the car 2.26 m/s which is 10 times the normal slow down speed to avoid an accident.
+Sometimes, the car ahead brakes suddenly and the above mentioned code lines in the main function handle this by slowing the car 2.26 m/s which is 10 times the normal slow down speed to avoid an accident.
 
 ### code lines 208 - 223 in main.cpp
 once the lane is switched and the lane variable is updated, the logic for calculating the points incorporates this lane information into the way points and a new spline trajectory is generated.
