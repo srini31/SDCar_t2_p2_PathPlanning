@@ -76,60 +76,59 @@ The data from the previous path is used so that all the unused points (the point
 
 ### The car is able to drive at least 4.32 miles without incident. 
 
-Here is a picture of car after completing the final run 
-[Final]: ./results/9_final.png "Final"
+Here is a picture of car after completing the final run
+![Final][image9]
 
 ### The car drives according to the speed limit.
 The car doesn't drive faster than the speed limit. Also the car isn't driving much slower than speed limit unless obstructed by traffic.
 Example of driving at max speed (49.5 m/s)
-[Max speed]: ./results/3_max_speed.png "Max speed"
+![Max speed][image3]
 
 Example of the car slowing down
-[Slow down]: ./results/4_slowdown.png "Slow down"
+![Slow down][image4]
 
 ### Max Acceleration and Jerk are not Exceeded.
 The car does not exceed a total acceleration of 10 m/s^2 and a jerk of 10 m/s^3.
-[Side view]: ./results/2_side_view.png "Side view"
+![Side view][image2]
 
 ### Car does not have collisions.
 The car must not come into contact with any of the other cars on the road. Here is an example where the car slows down and does not change lane due to the presence of another car.
-[Slow down and avoid lane change due to a car]: ./results/5_slowdown_without_changing_lane_due_to_a_car.png "Slow down avoid lane change"
-###The car stays in its lane, except for the time between changing lanes.
+![Slow down and avoid lane change due to a car][image5]
+
+### The car stays in its lane, except for the time between changing lanes.
 The car doesn't spend more than a 3 second length out side the lane lanes during changing lanes, and every other time the car stays inside one of the 3 lanes on the right hand side of the road.
 
-###The car is able to change lanes
+### The car is able to change lanes
 The car is able to smoothly change lanes when it makes sense to do so, such as when behind a slower moving car and an adjacent lane is clear of other traffic.
 Example of lane change left at low speed
-[Lane change at low speed]: ./results/6_lane_change_lowspeed.png "Lane change low speed"
+![Lane change at low speed][image6]
 
 Example of lane change left at full speed
-[Lane change at full speed]: ./results/7_lane_change_fullspeed.png "Lane change full speed"
+![Lane change at full speed][image7]
 
 Example of lane change right
-[Lane change right]: ./results/8_lane_change_right.png "lane change right"
+![Lane change right][image8]
 
-###There is a reflection on how to generate paths.
+### There is a reflection on how to generate paths.
 The code model for generating paths is described in detail. This can be part of the README or a separate doc labeled "Model Documentation".
 
-
-#code lines 158 - 191 in main.cpp
+### code lines 158 - 191 in main.cpp
 This code was referenced from the project Q&A and it helps to calculate if the car is too close to the car ahead in the same lane
 
-#code lines 156 - 177 in helpers.h
+### code lines 156 - 177 in helpers.h
 This code takes action once we know the car is too close to the car ahead. The first step to find a new lane to switch over to from the current lane. The code from helper function helps in this regard (). 
 For the left most lane, the cars only choice is to switch to the right side lane
 From the center lane, it can either go left or right, a random variable decides to go left or right
 From the right lane, it can only go to the left lane
 
-#code lines 181 - 213 in helpers.h
+### code lines 181 - 213 in helpers.h
 once we have a probable lane to shift to, the next step is to find out if there is no car within 30m of our car. This code in the helper function checks that every times, the socket message is read from the simulator. If we detect a car within 30m , we slow down and stay in lane otherwise we go ahead and switch.
 
-#code lines 187 - 189 and 201 - 204 in main.cpp
+### code lines 187 - 189 and 201 - 204 in main.cpp
 Sometimes, the car ahead brakes suddenly and the code lines 1.....1 in the main function handle this by slowing the car 2.26 m/s which is 10 times the normal slow down speed to avoid an accident.
 
-#code lines 208 - 223 in main.cpp
+### code lines 208 - 223 in main.cpp
 once the lane is switched and the lane variable is updated, the logic for calculating the points incorporates this lane information into the way points and a new spline trajectory is generated.
-
 
 
 ## Tips
